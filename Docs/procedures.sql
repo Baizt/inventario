@@ -78,7 +78,7 @@ BEGIN
     SELECT count(*)
     INTO num_items
 	FROM item_branch
-	WHERE id_item = 1 AND id_branch = 1;
+	WHERE id_item = item_id AND id_branch = branch_id;
     
     IF num_items = 0 THEN
 		INSERT INTO item_branch (id_item, id_branch, lot) VALUES(item_id, branch_id, num);
@@ -119,5 +119,16 @@ USE `stock`$$
 CREATE PROCEDURE `updateItem` (IN item_id INT, IN name_i TEXT, IN barcode_i INT, IN price_i DECIMAL(15, 2))
 BEGIN
 	UPDATE item SET name = name_i, barcode = barcode_i, price = price_i WHERE id = item_id;
+END$$
+DELIMITER ;
+
+
+USE `stock`;
+DROP procedure IF EXISTS `dropBranchItem`;
+DELIMITER $$
+USE `stock`$$
+CREATE PROCEDURE `dropBranchItem` (IN item_id INT, IN branch_id INT)
+BEGIN
+	DELETE FROM item_branch WHERE id_item = item_id AND id_branch = branch_id;
 END$$
 DELIMITER ;

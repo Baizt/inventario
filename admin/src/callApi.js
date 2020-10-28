@@ -42,24 +42,41 @@ const api = {
 		getAll(){
 			return callApi(`/branches`);
 		},
-		get(id_place){
-			return callApi(`/branches/${id_place}`);
+		get(branch_id){
+			return callApi(`/branches/${branch_id}`, {}, true);
 		},
 		update(update){
-			return callApi(`/branches/${update.id_place}`, {
+			return callApi(`/branches/${update.branch_id}`, {
 				method: 'PATCH',
 				body: JSON.stringify(update),
 			});
 		},
-		set(new_place){
+		set(new_branch){
 			return callApi(`/branches`, {
 				method: 'POST',
-				body: JSON.stringify(new_place),
+				body: JSON.stringify(new_branch),
 			});
 		},
-		drop(id_place){
-			return callApi(`/branches/${id_place}`, {
+		drop(branch_id){
+			return callApi(`/branches/${branch_id}`, {
 				method: 'DELETE',
+			});
+		},
+	},
+	branchItems:{
+		getByBranch(branch_id){
+			return callApi(`/branchitems/${branch_id}`);
+		},
+		set(new_branch_item){
+			return callApi(`/branchItems`, {
+				method: 'PATCH',
+				body: JSON.stringify(new_branch_item),
+			});
+		},
+		drop(branch_item){
+			return callApi(`/branchItems/`, {
+				method: 'DELETE',
+				body: JSON.stringify(branch_item),
 			});
 		},
 	},

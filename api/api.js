@@ -171,6 +171,33 @@ rutasProtegidas.use((req, res, next) => {
  })
 
 
+ // BranchItems
+ app.get('/branchitems/:branch', (req, res) => {
+	 getData(req, res, `CALL getBranchItems(${req.params.branch});`);
+ })
+ app.patch('/branchitems/', (req, res) => {
+	 const data = req.body;
+	 const query = `CALL setBranchItem(${data.item_id}, ${data.branch_id}, ${data.num});`;
+	 console.log(query)
+	 
+	 con.query(query, (err) => {
+			 if(err) throw err;
+	 });
+ 
+	 res.status(200).send(verifyToken(req.headers['access-token'], false, `BranchItem Agregado`));
+ })
+ app.delete('/branchitems/', rutasProtegidas, (req, res) => {
+	const data = req.body;
+	const query = `CALL dropBranchItem(${data.item_id}, ${data.branch_id});`;
+		 
+	 con.query(query, (err) => {
+			 if(err) throw err;
+	 });
+ 
+	 res.status(200).send(verifyToken(req.headers['access-token'], false, `BranchItem Eliminando`));
+ })
+
+
  // Branches
  app.get('/branches/:branch', (req, res) => {
 	 getData(req, res, `CALL getBranch(${req.params.branch});`);
