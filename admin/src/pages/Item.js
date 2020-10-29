@@ -9,10 +9,11 @@ import Col from 'react-bootstrap/Col';
 class Item extends Component{
 	state = {
 		item:false,
-		nuevo_item:typeof this.props.match.params.itemId == 'undefined'
+		nuevo_item:typeof this.props.match.params.itemId == 'undefined' || this.props.match.params.itemId == 'agregar'
 	}
 
 	componentDidMount(){
+		console.log(this.state)
 		if(this.state.nuevo_item){
 			this.setState({
 				item:{
@@ -94,8 +95,8 @@ class Item extends Component{
 				<h1>{this.state.nuevo_item ? "Nuevo Producto" : this.state.item.name}</h1>
 				<Form>
 					<Form.Group as={Row} controlId="itemName">
-						<Form.Label column sm="2" md="1">Producto</Form.Label>
-						<Col sm="10" md="11">
+						<Form.Label column sm="2" lg="1">Producto</Form.Label>
+						<Col sm="10" lg="11">
 							<Form.Control
 								type="text"
 								placeholder="Nombre del Producto"
@@ -107,8 +108,8 @@ class Item extends Component{
 					</Form.Group>
 
 					<Form.Group as={Row} controlId="itemCode">
-						<Form.Label column sm="2" md="1">Código</Form.Label>
-						<Col sm="10" md="11">
+						<Form.Label column sm="2" lg="1">Código</Form.Label>
+						<Col sm="10" lg="11">
 							<Form.Control
 								type="number"
 								placeholder="Código de Barras"
@@ -120,8 +121,8 @@ class Item extends Component{
 					</Form.Group>
 
 					<Form.Group as={Row} controlId="itemPrice">
-						<Form.Label column sm="2" md="1">Precio</Form.Label>
-						<Col sm="10" md="11">
+						<Form.Label column sm="2" lg="1">Precio</Form.Label>
+						<Col sm="10" lg="11">
 							<Form.Control
 								type="number" step="0.01"
 								placeholder="Precio al Público"

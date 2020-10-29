@@ -13,19 +13,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
         <Switch>
           <Route exact path='/' component={Login} />
           <Route exact path='/login' component={Login} />
-          <Route exact path='/home' component={Home} />
-          <Route exact path='/productos/agregar' component={Item} />
-          <Route exact path='/productos/:itemId' component={Item} />
-          <Route exact path='/productos' component={Items} />
-          <Route exact path='/sucursales/agregar' component={NewBranch} />
-          <Route exact path='/sucursales/:branchId' component={ItemsBranch} />
-          <Route exact path='/sucursales' component={Branches} />
+          <Layout>
+              <Route exact path='/home' component={Home} />
+              <Route exact path='/productos/agregar(\\w+)' component={Item} />
+              <Route exact path='/productos/:itemId' component={Item} />
+              <Route exact path='/productos' component={Items} />
+              <Route exact path='/sucursales/agregar(\\w+)' component={NewBranch} />
+              <Route exact path='/sucursales/:branchId' component={ItemsBranch} />
+              <Route exact path='/sucursales' component={Branches} />
+          </Layout>
         </Switch>
-      </Layout>
     </BrowserRouter>
   );
 }

@@ -57,8 +57,8 @@ class Login extends Component {
 				<Loader/>
 			)
 		return(
-			<section className="login">
-				<h1>LogIn</h1>
+			<section className="login mt-4">
+				<h1>Iniciar Sesión</h1>
 				<Form>
 					<Form.Group controlId="formUser">
 						<Form.Control type="text" placeholder="Usuario"
@@ -75,7 +75,7 @@ class Login extends Component {
 					</Form.Group>
 
 					<Button variant="primary" type="submit" onClick={this.logUser}>
-						Aceptar
+						Ingresar
 					</Button>
 				</Form>
 			</section>

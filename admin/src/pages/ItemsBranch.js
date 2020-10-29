@@ -4,6 +4,7 @@ import Loader from '../components/Loader';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -202,9 +203,15 @@ class ItemsBranch extends Component{
 						)
 					})}
 				</ListGroup>
-				<Button variant="success" type="button" onClick={this.addItem} className="mt-4" >
-					Agregar Producto
-				</Button>
+
+				{this.state.items.length < this.state.allItems.length ?
+					<Button variant="success" type="button" onClick={this.addItem} className="mt-4">
+						Agregar Producto
+					</Button> : 
+
+				<Alert variant="info" className="mt-4">
+					No se pueden agregar más productos, ya que esta sucursal cuenta con todos los productos disponibles
+				</Alert>}
 			</div>
 		)
 	}
