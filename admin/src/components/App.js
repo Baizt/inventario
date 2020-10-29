@@ -6,6 +6,7 @@ import Login from '../pages/Login';
 import Item from '../pages/Item';
 import Items from '../pages/Items';
 import Branches from '../pages/Branches';
+import NewBranch from '../pages/NewBranch';
 import ItemsBranch from '../pages/ItemsBranch';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,6 +21,7 @@ function App() {
           <Route exact path='/productos/agregar' component={Item} />
           <Route exact path='/productos/:itemId' component={Item} />
           <Route exact path='/productos' component={Items} />
+          <Route exact path='/sucursales/agregar' component={NewBranch} />
           <Route exact path='/sucursales/:branchId' component={ItemsBranch} />
           <Route exact path='/sucursales' component={Branches} />
         </Switch>

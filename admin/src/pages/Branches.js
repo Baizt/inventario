@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Branch from '../components/Branch';
 import Loader from '../components/Loader';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 class Branches extends Component{
 	
@@ -95,7 +96,7 @@ class Branches extends Component{
 						)
 					})}
 				</Row>
-				<Button variant="success" onClick={this.addBranch}>Agregar Sucursal</Button>
+				<Button variant="success" as={Link} to="sucursales/agregar">Agregar Sucursal</Button>
 			</section>
 		)
 	}
