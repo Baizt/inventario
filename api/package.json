@@ -4,6 +4,7 @@
   "description": "Api de Inventario",
   "main": "api.js",
   "scripts": {
+    "startdeploy": "npm install && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alfredo Ortiz",
