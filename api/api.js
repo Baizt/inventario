@@ -1,5 +1,6 @@
-const PUERTO = 8001;
-const BASE_URL = `http://localhost:${PUERTO}`;
+// const PUERTO = 8001;
+// const BASE_URL = `http://localhost:${PUERTO}`;
+const BASE_URL = `http://localhost:`;
 const mysql = require('mysql');
 const express = require('express');
 const jwt = require('jsonwebtoken');

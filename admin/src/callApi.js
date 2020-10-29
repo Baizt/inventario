@@ -1,5 +1,5 @@
 import Cookies from 'universal-cookie';
-const BASE_URL = `http://localhost:8001`;
+const BASE_URL = `https://eager-babbage-99f219.netlify.app`;
 
 async function callApi(endpoint, options = {}, single_answer) {
 	options.headers = {
