@@ -29,9 +29,7 @@ class Branches extends Component{
 	}
 
 	handleChange = e => {
-		let index_edited = 0;
 		let edited_branch = this.state.branches.filter((branch, index) => {
-			if(branch.id == e.target.dataset.id){ index_edited = index; }
 			return +branch.id === +e.target.dataset.id
 		})[0];
 		edited_branch[e.target.name] = e.target.value;

@@ -20,9 +20,9 @@ class Home extends Component{
 			const branches = await api.branches.getAll();
 			console.log('branches', branches)
 			this.setState({branches});
-			this.state.branches.map(branch => {
+			this.state.branches.forEach(branch => {
 				this.getItemsBranch(branch.id)
-			})
+			});
 			
 		} catch (error) {
 			console.log('Fail getAllBranches', error)
