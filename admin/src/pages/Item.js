@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 class Item extends Component{
 	state = {
 		item:false,
-		nuevo_item:typeof this.props.match.params.itemId == 'undefined' || this.props.match.params.itemId == 'agregar'
+		nuevo_item:typeof this.props.match.params.itemId === 'undefined' || this.props.match.params.itemId === 'agregar'
 	}
 
 	componentDidMount(){

@@ -1,6 +1,5 @@
 import React from 'react'
 import api from '../callApi';
-import Loader from '../components/Loader';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
