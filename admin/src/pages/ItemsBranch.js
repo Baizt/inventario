@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import api from '../callApi';
 import Loader from '../components/Loader';
-import {Link} from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -38,10 +37,8 @@ class ItemsBranch extends Component{
 	}
 	
 	handleChange = e => {
-		let index_edited = 0;
 		let edited_item = this.state.items.filter((item, index) => {
-			if(item.id_item == e.target.dataset.id){ index_edited = index; }
-			return item.id_item == e.target.dataset.id
+			return +item.id_item === +e.target.dataset.id
 		})[0];
 
 		console.log('edited_item', edited_item)
@@ -89,7 +86,7 @@ class ItemsBranch extends Component{
 
 	itemExistInBranch(id){
 		const coincidencias = this.state.items.filter(item => {
-			return item.id_item === id
+			return +item.id_item === +id
 		})
 		return coincidencias.length > 0;
 	}
